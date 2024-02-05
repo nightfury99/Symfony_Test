@@ -23,7 +23,7 @@ class HomeController extends AbstractController
         $greeting = $template->render();
         echo $greeting;
         return $this->render('home/index.html.twig', [
-            'greeting'  =>  html_entity_decode($greeting)
+            'greeting'  =>  $greeting
         ]);
     }
 }
