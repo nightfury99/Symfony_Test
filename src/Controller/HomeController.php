@@ -18,10 +18,10 @@ class HomeController extends AbstractController
         $time = date("h:i:sa");
         $templateString = "Hi $name! 👋 Welcome to my blog ($time 🕰️)";
         
-        $twig = $this->get('twig');
-        $template = twig_template_from_string($twig, $templateString);
-        $greeting = $template->render();
-        echo $greeting;
+        $greeting = $this->get('twig')->createTemplate($templateString)->render();
+        // $twig = $this->get('twig');
+        // $template = twig_template_from_string($twig, $templateString);
+        // $greeting = $template->render();
         return $this->render('home/index.html.twig', [
             'greeting'  =>  $greeting
         ]);
